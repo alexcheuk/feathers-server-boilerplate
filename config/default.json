@@ -1,0 +1,49 @@
+{
+  "host": "dev.procurifylite.com",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "secret": "2e7672314db381bfc5289ae354596faa54432a6f33ecf4f47be74858b69b84ac3dc5aefec2f9b0a0a97aebaa4d14b880693342726bd0dd933dc03ed1045197bb661dcba50f2a9d77ead9a3df30bf209c6190b4bb62a21ec46dd3a2b7247e8759ee784b5f1d84e8ecab26d87b2940e0668a05a289229cfd4289521a2def70c92dbc7bcc90f855e29cae3463d12c9688b8ca3c9154bb5a99ab0e727f81adaf743e5e44a53b45cd5ded93d582fa666dbdee6b34dd490af115419dff0fa547807be38fa7e96d2b2c5ec6094c3e5aa1d5c2b22215763166277afce57bb7b7b36261751ebb0a9635fb2260cc8c3d6903adc5680633fa3b571e2d6b2a35abed3ff6c1be",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "http://dev.procurifylite.com:3030",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "service": "users",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "google": {
+      "clientID": "---",
+      "clientSecret": "---",
+      "successRedirect": "/success.html",
+      "scope": [
+        "profile openid email"
+      ]
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  },
+  "mongodb": "mongodb://localhost:27017/lite"
+}
